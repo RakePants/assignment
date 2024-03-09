@@ -1,9 +1,6 @@
-FROM python:3.10.12-slim
+FROM python:3.11.7-slim
 
-RUN addgroup --gid 10001 app_user && \
-    adduser --uid 10001 --gid 10001 --disabled-password --gecos "" app_user
-
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
 
 ENV PYTHONPATH=/usr/src/app/src
 
@@ -15,8 +12,6 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-COPY --chown=app_user:app_user . .
+COPY . .
 
-USER app_user
-
-CMD ["python", "src/main.py"]
+ENTRYPOINT ["python", "-m", "src.main"]

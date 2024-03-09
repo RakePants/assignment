@@ -21,3 +21,12 @@ Accuracy Train Score: 0.6909937888198758
 Accuracy Test Score: 0.6370176586003924
 NDCG score: 0.43214574227842023
 ```
+## Launch
+### Variant 1
+1. Run `docker pull rakepants/assignment-app:latest`
+2. Run `docker run -p 7860:7860 rakepants/assignment-app`
+3. Navigate to http://localhost:7860/
+### Variant 2
+1. Clone this repository: `git clone https://github.com/RakePants/assignment`
+2. Run `cd assignment`
+3. Run `docker-compose up --build`
